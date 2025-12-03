@@ -7,36 +7,48 @@ Bu dosya Python ile ilgili temel özellikleri göstermektedir.
 (This file demonstrates basic Python features.)
 """
 
+from typing import Union
 
-def merhaba_dunya():
+Number = Union[int, float]
+
+
+def merhaba_dunya() -> str:
     """Merhaba Dünya fonksiyonu - Prints Hello World in Turkish"""
     print("Merhaba Dünya!")
     return "Merhaba Dünya!"
 
 
-def toplama(a, b):
+def toplama(a: Number, b: Number) -> Number:
     """İki sayıyı toplar - Adds two numbers"""
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("Parametreler sayı olmalıdır! (Parameters must be numeric!)")
     return a + b
 
 
-def cikarma(a, b):
+def cikarma(a: Number, b: Number) -> Number:
     """İki sayıyı çıkarır - Subtracts two numbers"""
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("Parametreler sayı olmalıdır! (Parameters must be numeric!)")
     return a - b
 
 
-def carpma(a, b):
+def carpma(a: Number, b: Number) -> Number:
     """İki sayıyı çarpar - Multiplies two numbers"""
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("Parametreler sayı olmalıdır! (Parameters must be numeric!)")
     return a * b
 
 
-def bolme(a, b):
+def bolme(a: Number, b: Number) -> float:
     """İki sayıyı böler - Divides two numbers"""
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("Parametreler sayı olmalıdır! (Parameters must be numeric!)")
     if b == 0:
         raise ValueError("Sıfıra bölme hatası! (Division by zero error!)")
     return a / b
 
 
-def main():
+def main() -> None:
     """Ana fonksiyon - Main function"""
     print("Python Projesi Hoş Geldiniz!")
     print("(Welcome to Python Project!)")
